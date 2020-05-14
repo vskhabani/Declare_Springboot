@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.SpringDemo.Spring1stExample.Validator.LoginService;
 import com.SpringDemo.Spring1stExample.Models.Player;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.server.ResponseStatusException;
 
 @Controller 
 
@@ -22,12 +23,11 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public Object handleUserLogin(ModelMap model, @RequestParam String name,
-			@RequestParam String password) {
+	public Player handleUserLogin(@RequestParam(value = "name", required = true) String name,
+			@RequestParam(value="password", required= true) String password) {
 		Player player;
 		if ((player = loginService.validateUser(name, password)) == null) {
-			/* Not Tested */
-			return new HttpClientErrorException(HttpStatus.UNAUTHORIZED, "Invalid Credentials");
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "The Credentials you specified were invalid.");
 		}
 		return player;
 	}
