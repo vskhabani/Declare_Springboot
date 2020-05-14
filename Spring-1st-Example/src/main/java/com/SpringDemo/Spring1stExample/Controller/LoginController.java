@@ -9,8 +9,6 @@ import com.SpringDemo.Spring1stExample.Validator.LoginService;
 import com.SpringDemo.Spring1stExample.Models.Player;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.net.http.HttpResponse;
-
 @Controller 
 
 public class LoginController {
