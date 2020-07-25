@@ -14,4 +14,9 @@ public class LoginService {
 	public Player validateUser(String user, String password) {
 		return playerRepository.findByUsernameAndPassword(user, password);
 	}
+
+	public Player getPlayer(int playerId){
+		return playerRepository.findByPlayerId(playerId);
+	}
+
 }

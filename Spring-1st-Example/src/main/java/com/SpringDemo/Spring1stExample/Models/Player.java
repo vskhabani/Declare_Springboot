@@ -1,39 +1,44 @@
 package com.SpringDemo.Spring1stExample.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@Table(name = "Player")
 public class Player {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer player_id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "player_id")
+    private Integer playerId;
 
     private String username;
 
     private String password;
 
     private String email;
+    @Column(name = "first_name")
+    private String firstName;
 
-    private String first_name;
+    @Column(name = "last_name")
+    private String lastName;
 
-    private String last_name;
+    @Column(name = "signup_date")
+    private Timestamp signUpDate;
 
-    private Timestamp signup_date;
+    @Column(name = "active_ind")
+    private boolean active;
 
-    private boolean active_ind;
+    @Column(name = "deactivation_date")
+    private Timestamp deactivationDate;
 
-    private Timestamp deactivation_date;
 
-    public Integer getPlayer_id() {
-        return player_id;
+    public Integer getPlayerId() {
+        return playerId;
     }
 
-    public void setPlayer_id(Integer player_id) {
-        this.player_id = player_id;
+    public void setPlayerId(Integer playerId) {
+        this.playerId = playerId;
     }
 
     public String getUsername() {
@@ -60,43 +65,43 @@ public class Player {
         this.email = email;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public Timestamp getSignup_date() {
-        return signup_date;
+    public Timestamp getSignUpDate() {
+        return signUpDate;
     }
 
-    public void setSignup_date(Timestamp signup_date) {
-        this.signup_date = signup_date;
+    public void setSignUpDate(Timestamp signupDate) {
+        this.signUpDate = signupDate;
     }
 
-    public boolean isActive_ind() {
-        return active_ind;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setActive_ind(boolean active_ind) {
-        this.active_ind = active_ind;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public Timestamp getDeactivation_date() {
-        return deactivation_date;
+    public Timestamp getDeactivationDate() {
+        return deactivationDate;
     }
 
-    public void setDeactivation_date(Timestamp deactivation_date) {
-        this.deactivation_date = deactivation_date;
+    public void setDeactivationDate(Timestamp deactivationDate) {
+        this.deactivationDate = deactivationDate;
     }
 }

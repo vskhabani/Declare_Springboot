@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PlayerRepository extends CrudRepository<Player, Integer> {
     Player findByUsernameAndPassword(String username, String password);
+    Player findByPlayerId(int playerId);
 }
